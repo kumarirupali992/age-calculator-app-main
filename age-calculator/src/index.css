@@ -1,0 +1,9 @@
+.App{
+  background-image: url('https://c4.wallpaperflare.com/wallpaper/280/619/719/light-stains-faded-dull-wallpaper-preview.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
