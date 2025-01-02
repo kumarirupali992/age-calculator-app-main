@@ -2,17 +2,18 @@
 
 const AgeCalculator = () => {
   const [birthDate, setBirthDate] = useState("");
+  const [currentDate, setCurrentDate] = useState("");
   const [age, setAge] = useState({ years: null, months: null, days: null });
 
   const calculateAge = () => {  
     if (!birthDate) return;
 
     const birthDateObj = new Date(birthDate);
-    const currentDate = new Date();
+    const currentDateObj = new Date(currentDate);
 
-    let years = currentDate.getFullYear() - birthDateObj.getFullYear();
-    let months = currentDate.getMonth() - birthDateObj.getMonth();
-    let days = currentDate.getDate() - birthDateObj.getDate();
+    let years = currentDateObj.getFullYear() - birthDateObj.getFullYear();
+    let months = currentDateObj.getMonth() - birthDateObj.getMonth();
+    let days = currentDateObj.getDate() - birthDateObj.getDate();
 
     if (days < 0) {
       months--;
@@ -38,6 +39,13 @@ const AgeCalculator = () => {
         style={{ padding: "10px", marginBottom: "20px" }}
       />
       <br />
+      <input
+        type="date"
+        value={currentDate}
+        onChange={(e) => setCurrentDate(e.target.value)}
+        style={{ padding: "10px", marginBottom: "20px" }}
+      />
+      <br />
       <button
         onClick={calculateAge}
         style={{
@@ -52,7 +60,7 @@ const AgeCalculator = () => {
       </button>
       {age.years !== null && (
         <h2 style={{ marginTop: "20px" }}>
-          Your Age: {age.years} years, {age.months} months, and {age.days} days
+          Your Age: {age.years} years, {age.months} months and {age.days} days
         </h2>
       )}
     </div>
